@@ -2,7 +2,7 @@
 
 ## What is a neural network?
 ![](../Images/neural-network.png)
->img src: https://upload.wikimedia.org/wikipedia/commons/9/99/Neural_network_example.svg
+>source: https://upload.wikimedia.org/wikipedia/commons/9/99/Neural_network_example.svg
 
 The neural network is simply given *the inputs* and *the outputs* for a number of examples in your training set
 and it will figure out the **hidden layer** (a ReLu function most of the time).
