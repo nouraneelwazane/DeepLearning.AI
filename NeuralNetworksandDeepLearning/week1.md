@@ -1,6 +1,6 @@
 # Introduction to Deep Learning
 
-## What is a neural network?
+## What is a Neural Network?
 ![](../Images/neural-network.png)
 >source: https://upload.wikimedia.org/wikipedia/commons/9/99/Neural_network_example.svg
 
