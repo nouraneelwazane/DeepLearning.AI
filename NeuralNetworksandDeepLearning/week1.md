@@ -4,9 +4,9 @@
 ![](../Images/neural-network.png)
 >source: https://upload.wikimedia.org/wikipedia/commons/9/99/Neural_network_example.svg
 
-The neural network is a computational learning system that uses a network of functions (a ReLu function most of the time) to understand and translate a *data input* of one form into a *desired output*.
+The neural network is a computational learning system that uses a network of functions (a ReLu function most of the time) to understand and translate a *data input* into a *desired output*.
 
-The job of the neural network is to *predict the output given a set of input (map the input to the output)*.
+The job of the neural network is to *map the input to the output*.
 
 The hidden layer and the input layer are *densly connected*.
 
