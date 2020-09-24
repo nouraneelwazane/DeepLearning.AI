@@ -4,8 +4,7 @@
 ![](../Images/neural-network.png)
 >source: https://upload.wikimedia.org/wikipedia/commons/9/99/Neural_network_example.svg
 
-The neural network is simply given *the inputs* and *the outputs* for a number of examples in your training set
-and it will figure out the **hidden layer** (a ReLu function most of the time).
+The neural network is a computational learning system that uses a network of functions (a ReLu function most of the time) to understand and translate a *data input* of one form into a *desired output*.
 
 The job of the neural network is to *predict the output given a set of input (map the input to the output)*.
 
