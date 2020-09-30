@@ -31,6 +31,7 @@ The dimension of the input feature x (denoted **n<sub>x</sub>**) will be 64X64X3
   - Used in linear regression, but **doesn't work** on binary classification problems
 - The logistics regression function is **ŷ = σ (w<sup>T</sup> * x + b)**
 - The sigmoid funtction **σ(z) = 1/(1 + e<sup>-z</sup>)**
+
 ![](../Images/sigmoid-function2.jpg)
 >img src: https://en.wikipedia.org/wiki/Sigmoid_function
 
