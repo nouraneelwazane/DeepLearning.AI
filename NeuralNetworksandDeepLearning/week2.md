@@ -2,9 +2,9 @@
 
 ## Binary Classification
 - An example of binary classification: 
- - *Input:* Image (X) &rarr; Three 64X64 matrices (**feature** vectors) denoting the pixel intensity of red, green and blue in the image.
+  - *Input:* Image (X) &rarr; Three 64X64 matrices (**feature** vectors) denoting the pixel intensity of red, green and blue in the image.
 The dimension of the input feature x (denoted **n<sub>x</sub>**) will be 64X64X3 = 12288
- - *Output:* A **label** (y) that denotes 1 for cat image and 0 for not a cat image
+  - *Output:* A **label** (y) that denotes 1 for cat image and 0 for not a cat image
 
 ![](../Images/rgb-image-matrix.jpg)
 >img src: https://www.geeksforgeeks.org/matlab-rgb-image-representation/
