@@ -15,20 +15,20 @@ The dimension of the input feature x (denoted **n<sub>x</sub>**) will be 64X64X3
 - **M<sub>train</sub>** or **m** &rarr; the number of training samples
 - **M<sub>test</sub>** &rarr; the number of test examples
 - The matrix **X** = [x<sup>1</sup>; x<sup>2</sup>;..... x<sup>m</sup>]
- - It consists of m columns and height n<sub>x</sub>
- - To find the shape of the matrix in Python use the command **X.shape** = (m, n<sub>x</sub>)
+  - It consists of m columns and height n<sub>x</sub>
+  - To find the shape of the matrix in Python use the command **X.shape** = (m, n<sub>x</sub>)
 - The matrix **Y** = [y<sup>1</sup> y<sup>2</sup> ..... y<sup>m</sup>]
- - Y.shape = (1, m)
+  - Y.shape = (1, m)
  
 ## Logistic Regression
 - Logistic Regression is the algorithm for binary classification.
 - Given an input x, we want the algorithm to output **ŷ** which is *the probability that y=1*
 - Its parameters are:
- - W: &rarr; dimension n<sub>x</sub>
- - b: a real number
+  - W: &rarr; dimension n<sub>x</sub>
+  - b: a real number
 - A linear function to relate x to ŷ 
- - **ŷ = w<sup>T</sup> * x + b** *(N.B. T means transpose)*
- - Used in linear regression, but **doesn't work** on binary classification problems
+  - **ŷ = w<sup>T</sup> * x + b** *(N.B. T means transpose)*
+  - Used in linear regression, but **doesn't work** on binary classification problems
 - The logistics regression function is **ŷ = σ (w<sup>T</sup> * x + b)**
 - The sigmoid funtction **σ(z) = 1/(1 + e<sup>-z</sup>)**
 ![](../Images/sigmoid-function2.jpg)
