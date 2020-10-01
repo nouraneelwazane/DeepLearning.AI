@@ -118,6 +118,7 @@ The dimension of the input feature x (denoted **n<sub>x</sub>**) will be 64X64X3
    -  ŷ = a = σ(z)
    -  L(a, y) = - (y log(a) + (1 - y) log(1 - a))
 -  Example:
+
 ![](../Images/logistic-regression-gradient-descent.PNG)
 >img src: https://www.coursera.org/learn/neural-networks-deep-learning/lecture/5sdh6/logistic-regression-gradient-descent
 
@@ -125,4 +126,4 @@ The dimension of the input feature x (denoted **n<sub>x</sub>**) will be 64X64X3
   -  ∂L(a, y)/∂z = dz = [∂L(a, y)/∂z] \* [∂a/∂z] = [-(y/a) + ((1-y)/(1-a))] \* [a(1-a)] = 1 - y
   -  dw1 = x1 \* dz
   -  dw2 = x2 \* dz
-  - db = dz
+  -  db = dz
