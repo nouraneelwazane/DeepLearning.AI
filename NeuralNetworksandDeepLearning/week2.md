@@ -48,12 +48,12 @@ The dimension of the input feature x (denoted **n<sub>x</sub>**) will be 64X64X3
   - It measures how well the estimate is in **one** training example.
   - **L(ŷ, y) = - (y log(ŷ) + (1 - y) log(1 - ŷ))**
     - *We always want the loss to be as small as possible *
-    - ** * If y = 1: * ** 
+    - *** If y = 1: *** 
       - L(ŷ, y) = - y log(ŷ) 
       - ∴ we want y log(ŷ) to be as large as possibe 
       - ∴ we want `ŷ` to be large 
       - `ŷ` is a sigmoid function so its largest possible value is 1
-    - ** * If y = 0: * ** 
+    - *** If y = 0: *** 
       - L(ŷ, y) = - log(1 - ŷ) 
       - ∴ we want log(1 - ŷ) to be as large as possibe 
       - ∴ we want `ŷ` to be small 
