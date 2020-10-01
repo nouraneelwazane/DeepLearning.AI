@@ -79,7 +79,7 @@ The dimension of the input feature x (denoted **n<sub>x</sub>**) will be 64X64X3
 ![](../Images/gradient-descent.jpg)
 >img src: https://www.kdnuggets.com/2018/06/intuitive-introduction-gradient-descent.html
 
-  -  ** `α` ** is the learning rate, it depends the step taken in each iteration in the gradient descent
-  -  ** `dw` ** will be used in coding as an acronym for *∂J(w, b)/∂(w)*
-  -  ** `db` ** will be used in coding as an acronym for *∂J(w, b)/∂(b)*
+  -  **`α`** is the learning rate, it depends the step taken in each iteration in the gradient descent
+  -  **`dw`** will be used in coding as an acronym for *∂J(w, b)/∂(w)*
+  -  **`db`** will be used in coding as an acronym for *∂J(w, b)/∂(b)*
   
