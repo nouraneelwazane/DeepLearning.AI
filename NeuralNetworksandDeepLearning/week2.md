@@ -118,12 +118,54 @@ The dimension of the input feature x (denoted **n<sub>x</sub>**) will be 64X64X3
    -  ŷ = a = σ(z)
    -  L(a, y) = - (y log(a) + (1 - y) log(1 - a))
 -  Example:
+   -  x1, x2 &rarr; features
+   -  we want to tweak the values of w1, w2 and b to reduce the loss.
+   
+   ![](../Images/logistic-regression-gradient-descent.PNG)
+   >img src: https://www.coursera.org/learn/neural-networks-deep-learning/lecture/5sdh6/logistic-regression-gradient-descent
+   
+   -  ∂L(a, y)/∂a = da = -(y/a) + ((1-y)/(1-a))
+   -  ∂L(a, y)/∂z = dz = [∂L(a, y)/∂z] \* [∂a/∂z] = [-(y/a) + ((1-y)/(1-a))] \* [a(1-a)] = 1 - y
+   -  dw1 = x1 \* dz
+   -  dw2 = x2 \* dz
+   -  db = dz
+   -  To perform gradient descent in this example:
+      -  Compute dz, dw1, dw2, db
+      -  w1 = w1 - α dw1
+      -  w2 = w2 - α dw2
+      -  b = b - α db
+      
+## Gradient Descent on m Examples
 
-![](../Images/logistic-regression-gradient-descent.PNG)
->img src: https://www.coursera.org/learn/neural-networks-deep-learning/lecture/5sdh6/logistic-regression-gradient-descent
+- **Recap:**
+  -  J(w, b) = 1/m Σ L(a<sup>(i)</sup>, y<sup>(i)</sup>) &rarr; cost function
+  -  a<sup>(i)</sup> = ŷ<sup>(i)</sup> = σ(z) = σ(w<sup>T</sup> \* x<sup>(i)</sup> + b) &rarr; estimate for a particular training example
+  -  ∂J(w, b)/∂w1 = 1/m \* Σ ∂L(a<sup>(i)</sup>, y<sup>(i)</sup>)/∂w<sup>(i)</sup> = 1/m \* Σ [dw<sup>(i)</sup> - (x<sup>(i)</sup>, y<sup>(i)</sup>)]
+  -  **Code for gradient descent:**
+  
+     J = 0; dw1 = 0; dw2 =0; db = 0  &rarr; in this example we have only 2 features x1 and x2
+     
+     w1 = 0; w2 = 0; b=0	
+     
+	 for i = 1 to m  &rarr; *loop through the entire training set*
+		-  z<sup>(i)</sup> = w<sup>T</sup> \* x<sup>(i)</sup> + b
+		-  a<sup>(i)</sup> = σ(z<sup>(i)</sup>)
+		-  J += -[y<sup>(i)</sup> \* log(a<sup>(i)</sup>) + (1-y<sup>(i)</sup>) \* log(1-a<sup>(i)</sup>)]
+		-  dz<sup>(i)</sup> = a<sup>(i)</sup> - y<sup>(i)</sup>
+		-  dw1 += x1<sup>(i)</sup> \* dz<sup>(i)</sup>
+		-  dw2 += x1<sup>(i)</sup> \* dz<sup>(i)</sup>
+		-  db  += dz<sup>(i)</sup>
+	
+    J /= m
+    
+	dw1 /= m
+    
+	dw2 /= m
+    
+	db /= m
 
-  -  ∂L(a, y)/∂a = da = -(y/a) + ((1-y)/(1-a))
-  -  ∂L(a, y)/∂z = dz = [∂L(a, y)/∂z] \* [∂a/∂z] = [-(y/a) + ((1-y)/(1-a))] \* [a(1-a)] = 1 - y
-  -  dw1 = x1 \* dz
-  -  dw2 = x2 \* dz
-  -  db = dz
+	w1 = w1 - α * dw1
+    
+	w2 = w2 - α * dw2
+    
+	b = b - α * db
