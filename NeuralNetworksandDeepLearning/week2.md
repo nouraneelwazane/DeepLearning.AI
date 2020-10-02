@@ -169,3 +169,10 @@ The dimension of the input feature x (denoted **n<sub>x</sub>**) will be 64X64X3
 	w2 = w2 - α * dw2
     
 	b = b - α * db
+    
+    The algorithm needs to be of low complexity as we deal with large datasets, so we use vectorization techniques to get rid of explicit for loops.
+    
+## Vectorization
+
+-  It's getting rid of explicit for loops.
+-  
