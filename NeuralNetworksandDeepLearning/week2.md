@@ -205,7 +205,7 @@ The dimension of the input feature x (denoted **n<sub>x</sub>**) will be 64X64X3
    -  u**2
    -  1/u
 
--  **Logistic Regression Implementation using Numpy :** *N.B. can be further vecorized*
+-  **Logistic Regression Implementation using Numpy :** *N.B. can be further vectorized*
 
    J = 0; dw = np.zeros(n<sub>x</sub>, 1); db = 0
 
@@ -228,7 +228,7 @@ The dimension of the input feature x (denoted **n<sub>x</sub>**) will be 64X64X3
 -  Forward Propagation :
    -  **Recap :**
       -  The matrix **X** = [x<sup>1</sup>; x<sup>2</sup>;..... x<sup>m</sup>] and **X.shape** = (n<sub>x</sub>, m)
-   -  Instead of the for loop "for i = 1 to m:"
+   -  **Instead of the for loop "for i = 1 to m:"**
          -  Z = w<sup>T</sup> \* X + b
          -  Where Z = [z<sup>(1)</sup> z<sup>(2)</sup> ... z<sup>(m)</sup>] &rarr; size : 1xm
          -  Where b = [b<sup>(1)</sup> b<sup>(2)</sup> ... b<sup>(m)</sup>] &rarr; size : 1xm
@@ -236,3 +236,37 @@ The dimension of the input feature x (denoted **n<sub>x</sub>**) will be 64X64X3
          -  a = σ(z); A = [a<sup>(1)</sup> a<sup>(2)</sup> ... a<sup>(m)</sup>]; &rarr; will be implemented in Python in the assignment
          
 ## Vectorizing Logistic Regression's Gradient Output
+-  **A single iteration of Logistic Regression Gradient Descent**
+   -  Z = np.dot(w<sup>T</sup>, X) + b
+   -  A = σ(Z)
+   -  dZ = A - Y = [a<sup>(1)</sup>-y<sup>(1)</sup> a<sup>(2)</sup>-y<sup>(2)</sup> ... a<sup>(m)</sup>-y<sup>(m)</sup>]
+   -  dw = 1/m \* X \* dZ<sup>T</sup>
+   -  db = 1/m * np.sum(dZ)
+   -  w = w - α * dw
+   -  b = b - α * db
+-  We still need a for loop to apply Gradient Descent multiple times &rarr; no way to get rid of this for loop
+
+## Broadcasting in Python
+-  Used to make the code run faster
+-  **Example :**
+   
+   Matrix A &rarr; 3x4
+   
+   cal = A.sum(axis = 0) &rarr; sum vertically &rarr; 1x4 matrix
+   
+   N.B. axis = 1 &rarr; sum horizontally
+   
+   percentage = 100 \* A / cal.reshape(1, 4) or 100 \* A / cal &rarr; broadcasting
+   
+-  **More Examples :**
+   -  [1; 2; 3; 4] + 100 = [1; 2; 3; 4] + [100; 100; 100; 100] = [101; 102; 103; 104]
+   -  [1 2 3; 4 5 6] + [100 200 300] = [1 2 3; 4 5 6] + [100 200 300; 100 200 300]
+   -  [1 2 3; 4 5 6] + [100; 200] = [1 2 3; 4 5 6] + [100 100 100; 200 200 200]
+## A note on python/numpy vectors
+-  a = np.random.randn(5)
+
+   a.shape &rarr; (5,) this is a rank 1 array, neither a row nor a column vector, fix using use a.reshape((5,1)) or a.reshape((1,5))
+   
+   **instead** a = np.random.randn(5, 1)
+   
+   to make sure assert(a.shape == (5,1))
