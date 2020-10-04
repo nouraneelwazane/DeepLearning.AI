@@ -16,7 +16,7 @@ The dimension of the input feature x (denoted **n<sub>x</sub>**) will be 64X64X3
 - **M<sub>test</sub>** &rarr; the number of test examples
 - The matrix **X** = [x<sup>1</sup>; x<sup>2</sup>;..... x<sup>m</sup>]
   - It consists of m columns and height n<sub>x</sub>
-  - To find the shape of the matrix in Python use the command **X.shape** = (m, n<sub>x</sub>)
+  - To find the shape of the matrix in Python use the command **X.shape** = (n<sub>x</sub>, m)
 - The matrix **Y** = [y<sup>1</sup> y<sup>2</sup> ..... y<sup>m</sup>]
   - Y.shape = (1, m)
  
@@ -153,7 +153,7 @@ The dimension of the input feature x (denoted **n<sub>x</sub>**) will be 64X64X3
    -  J += -[y<sup>(i)</sup> \* log(a<sup>(i)</sup>) + (1-y<sup>(i)</sup>) \* log(1-a<sup>(i)</sup>)]
    -  dz<sup>(i)</sup> = a<sup>(i)</sup> - y<sup>(i)</sup>
    -  dw1 += x1<sup>(i)</sup> \* dz<sup>(i)</sup>
-   -  dw2 += x1<sup>(i)</sup> \* dz<sup>(i)</sup>
+   -  dw2 += x2<sup>(i)</sup> \* dz<sup>(i)</sup>
    -  db  += dz<sup>(i)</sup>
 	
    J /= m
@@ -175,4 +175,64 @@ The dimension of the input feature x (denoted **n<sub>x</sub>**) will be 64X64X3
 ## Vectorization
 
 -  It's getting rid of explicit for loops.
--  
+-  Vectorized Implementation of z using Nympy: 
+   
+   import numpy as np
+   
+   z = np.dot(w, x) + b
+   
+-  Jupiter Notebook runs on a CPU not a GPU (popular with deep learning).
+   
+   Both CPUs and GPUs have parallelization instructions (SIMD).
+   
+   Numpy instructions that don't have explicit for loops take advantage of the SIMD and hence computations take less time.
+   
+## More Vectorization Examples
+
+-  Whenever possible, avoid using for loops.
+-  u = A \* v ; where A and v are vectors
+
+   Vectorized Implementation : u = np.dot(A, v)
+   
+-  Applying exponential operation on every element of th matrix/vector
+
+   Vectorized Implementation : u = np.exp(v)
+   
+-  More Numpy vector value functions : &rarr; *instead of explicit for loops*
+   -  np.log(u)
+   -  np.abs(u)
+   -  np.maximum(u, 0)
+   -  u**2
+   -  1/u
+
+-  **Logistic Regression Implementation using Numpy :** *N.B. can be further vecorized*
+
+   J = 0; dw = np.zeros(n<sub>x</sub>, 1); db = 0
+
+   for i = 1 to m :
+   -  z<sup>(i)</sup> = w<sup>T</sup> \* x<sup>(i) + b
+   -  a<sup>(i)</sup> = σ(z<sup>(i)</sup>)
+   -  J += -[y<sup>(i)</sup> \* log(a<sup>(i)</sup>) + (1-y<sup>(i)</sup>) \* log(1-a<sup>(i)</sup>)]
+   -  dz<sup>(i)</sup> [da/dz<sup>(i)</sup>] = a<sup>(i)</sup>(a<sup>(i)</sup> - y<sup>(i)</sup>)
+   -  dw += x<sup>i</sup> \* dz<sup>i</sup>
+   -  db += dz<sup>i</sup>
+   
+   J /= m
+   
+   dw /= m
+   
+   db /= m
+   
+## Vectorizing Logistic Regression
+
+-  Forward Propagation :
+   -  **Recap :**
+      -  The matrix **X** = [x<sup>1</sup>; x<sup>2</sup>;..... x<sup>m</sup>] and **X.shape** = (n<sub>x</sub>, m)
+   -  Instead of the for loop "for i = 1 to m:"
+         -  Z = w<sup>T</sup> \* X + b
+         -  Where Z = [z<sup>(1)</sup> z<sup>(2)</sup> ... z<sup>(m)</sup>] &rarr; size : 1xm
+         -  Where b = [b<sup>(1)</sup> b<sup>(2)</sup> ... b<sup>(m)</sup>] &rarr; size : 1xm
+         -  **In Pyhton :** Z = np.dot(w<sup>T</sup>, X) + b &rarr; b is 1x1 but Python converts it to 1xm aka broadcasting
+         -  a = σ(z); A = [a<sup>(1)</sup> a<sup>(2)</sup> ... a<sup>(m)</sup>]; &rarr; will be implemented in Python in the assignment
+         
+## Vectorizing Logistic Regression's Gradient Output
