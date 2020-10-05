@@ -2,7 +2,7 @@
 
 ## Binary Classification
 - An example of binary classification: 
-  - *Input:* Image (X) &rarr; Three 64X64 matrices (**feature** vectors) denoting the pixel intensity of red, green and blue in the image.
+  - *Input:* Image (x) &rarr; Three 64X64 matrices (**feature** vectors) denoting the pixel intensity of red, green and blue in the image.
 The dimension of the input feature x (denoted **n<sub>x</sub>**) will be 64X64X3 = 12288
   - *Output:* A **label** (y) that denotes 1 for cat image and 0 for not a cat image
 
@@ -14,7 +14,7 @@ The dimension of the input feature x (denoted **n<sub>x</sub>**) will be 64X64X3
 - The training set consists of **m** training examples: (x<sup>1</sup>, y<sup>1</sup>) to (x<sup>m</sup>, y<sup>m</sup>)
 - **M<sub>train</sub>** or **m** &rarr; the number of training samples
 - **M<sub>test</sub>** &rarr; the number of test examples
-- The matrix **X** = [x<sup>1</sup>; x<sup>2</sup>;..... x<sup>m</sup>]
+- The matrix **X** = [x<sup>1</sup>; x<sup>2</sup>;..... x<sup>m</sup>]<sup>T</sup> &rarr; each column contains an x<sup>(i)</sup>
   - It consists of m columns and height n<sub>x</sub>
   - To find the shape of the matrix in Python use the command **X.shape** = (n<sub>x</sub>, m)
 - The matrix **Y** = [y<sup>1</sup> y<sup>2</sup> ..... y<sup>m</sup>]
@@ -95,7 +95,7 @@ The dimension of the input feature x (denoted **n<sub>x</sub>**) will be 64X64X3
 -  if f(a) = ln(a) &rarr; d(f(a))/d(a) = 1/a
 
 ## Computation Graph
--  The computations of a neural network are organized in terms of a * forward pass * in which we compute the o/p of the network followed by a * backward pass * in which we use to compute derivatives.
+-  The computations of a neural network are organized in terms of a *forward pass* in which we compute the o/p of the network followed by a *backward pass* in which we use to compute derivatives.
 -  This graph is used in optimization - for the cost function in logistic regression
 -  The following image is of a left to right computation (forward pass)
 
@@ -227,7 +227,7 @@ The dimension of the input feature x (denoted **n<sub>x</sub>**) will be 64X64X3
 
 -  Forward Propagation :
    -  **Recap :**
-      -  The matrix **X** = [x<sup>1</sup>; x<sup>2</sup>;..... x<sup>m</sup>] and **X.shape** = (n<sub>x</sub>, m)
+      -  The matrix **X** = [x<sup>1</sup>; x<sup>2</sup>;..... x<sup>m</sup>]<sup>**T**</sup> and **X.shape** = (n<sub>x</sub>, m)
    -  **Instead of the for loop "for i = 1 to m:"**
          -  Z = w<sup>T</sup> \* X + b
          -  Where Z = [z<sup>(1)</sup> z<sup>(2)</sup> ... z<sup>(m)</sup>] &rarr; size : 1xm
