@@ -1,4 +1,4 @@
-# Logistic Regression as a Neural Network
+# Neural Network Basics
 
 ## Binary Classification
 - An example of binary classification: 
@@ -270,3 +270,9 @@ The dimension of the input feature x (denoted **n<sub>x</sub>**) will be 64X64X3
    **instead** a = np.random.randn(5, 1)
    
    to make sure assert(a.shape == (5,1))
+   
+-  Note that np.dot() performs a matrix-matrix or matrix-vector multiplication. This is different from np.multiply() and the * operator (which is equivalent to .* in Matlab/Octave), which performs an element-wise multiplication.
+-  In jupyter notebook, run your cells using SHIFT+ENTER (or "Run cell")
+-  The sigmoid function is sometimes known as the logistic function.
+-  In deep learning, we rarely use the "math" library because the inputs of the functions are real numbers. In deep learning we mostly use matrices and vectors. This is why numpy is more useful.
+-  "unroll", or reshape, the 3D array into a 1D vector: (length∗height∗3,1)
