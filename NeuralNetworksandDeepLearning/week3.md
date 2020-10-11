@@ -17,3 +17,5 @@ The hidden layer has associated with parameters w<sup>[1]</sup> and b<sup>[1]</s
 The output layer has associated with parameters w<sup>[2]</sup> and b<sup>[2]</sup>.
 
 a<sup>[1]</sup> = [a<sup>[1]</sup><sub>1</sub>; a<sup>[1]</sup><sub>2</sub>; a<sup>[1]</sup><sub>3</sub>] &rarr; 3 dimensional because the NN's hidden layer has 3 hidden units.
+
+## Computing a Neural Network's Output
